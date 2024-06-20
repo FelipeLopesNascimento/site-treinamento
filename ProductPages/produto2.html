@@ -15,6 +15,9 @@
   </script>
   <!-- End Google Tag Manager -->
 
+  <!-- dlEvents script-->
+  <script src="../Scripts/dlEvents.js"></script>
+
   <title>Data Analytics Car Shop - Produto 2</title>
   <style>
     h1 {
@@ -83,11 +86,43 @@
     .buy-button:hover {
       background-color: #008080;
     }
+
+    .add-to-cart-button,
+    .remove-from-cart-button,
+    .checkout-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .add-to-cart-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .remove-from-cart-button {
+      background-color: #FF6347;
+      color: white;
+    }
+
+    .checkout-button {
+      background-color: #008080;
+      color: white;
+    }
+
+    .add-to-cart-button:hover,
+    .remove-from-cart-button:hover,
+    .checkout-button:hover {
+      opacity: 0.8;
+    }
   </style>
 
 </head>
 
-<body>
+<body onload="dlEvent({event: events.viewProduct, itemProperties: carModels.gol})">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
@@ -95,11 +130,13 @@
   </noscript>
   <!-- End Google Tag Manager (noscript) -->
 
-  <h1>Pixel.Monks Dev Test - Produto 1</h1>
+  <a href="../index.html">Home</a>
+  <h1>Pixel.Monks Dev Test - Produto 2</h1>
+
   <div class="menu">
-    <a href="#">Categoria 1</a>
-    <a href="#">Categoria 2</a>
-    <a href="#">Categoria 3</a>
+    <a href="../CategoryPages/compacto.html">Compacto</a>
+    <a href="../CategoryPages/esportivo.html">Esportivo</a>
+    <a href="../CategoryPages/sedan.html">Sedan</a>
   </div>
   <div class="product-card">
     <img src="https://blog.olhonocarro.com.br/wp-content/uploads/2023/06/vw-gol-g2-azul-traseira.jpg" alt="Produto 1">
@@ -108,7 +145,13 @@
     <p>Debaixo do capô, o Gol G2 oferece uma variedade de opções de motorização, proporcionando um desempenho
       equilibrado e eficiente. Com uma suspensão bem ajustada, o carro oferece estabilidade e dirigibilidade precisa,
       tornando-o ideal para o uso diário e viagens curtas.</p>
-    <a href="agradecimento.html" class="buy-button">Comprar</a>
+    <a href="../agradecimento.html" class="buy-button">Comprar</a>
+    <button class="add-to-cart-button"
+      onclick="dlEvent({event: events.addToCart, itemProperties: carModels.gol})">Adicionar
+      ao Carrinho</button>
+    <button class="remove-from-cart-button"
+      onclick="dlEvent({event: events.removeCart, itemProperties: carModels.gol})">Remover do Carrinho</button>
+    <a href="../checkout.html" class="checkout-button">Ir para o Checkout</a>
     <!-- Resto do conteúdo -->
   </div>
 </body>

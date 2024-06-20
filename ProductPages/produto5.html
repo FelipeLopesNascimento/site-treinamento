@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <!-- Google Tag Manager -->
+  <script>
+    (function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5KHDMS78');
+  </script>
+  <!-- End Google Tag Manager -->
+
+  <!-- dlEvents script-->
+  <script src="../Scripts/dlEvents.js"></script>
+
+  <title>Data Analytics Car Shop - Produto 5</title>
+  <style>
+    h1 {
+
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .menu {
+      background-color: #333;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .menu a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+
+    .product-card {
+      width: 300px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .product-card h2 {
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .product-card .price {
+      font-size: 18px;
+      color: #009688;
+      margin-bottom: 10px;
+    }
+
+    .product-card p {
+      font-size: 14px;
+      color: #555;
+      margin-bottom: 10px;
+    }
+
+    .buy-button {
+      display: inline-block;
+      background-color: #009688;
+      color: #fff;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 3px;
+      transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+      background-color: #008080;
+    }
+
+    .add-to-cart-button,
+    .remove-from-cart-button,
+    .checkout-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .add-to-cart-button {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .remove-from-cart-button {
+      background-color: #FF6347;
+      color: white;
+    }
+
+    .checkout-button {
+      background-color: #008080;
+      color: white;
+    }
+
+    .add-to-cart-button:hover,
+    .remove-from-cart-button:hover,
+    .checkout-button:hover {
+      opacity: 0.8;
+    }
+  </style>
+
+</head>
+
+<body onload="dlEvent({event: events.viewProduct, itemProperties: carModels.fusion})">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <a href="../index.html">Home</a>
+  <h1>Pixel.Monks Dev Test - Produto 5</h1>
+
+  <div class="menu">
+    <a href="../CategoryPages/compacto.html">Compacto</a>
+    <a href="../CategoryPages/esportivo.html">Esportivo</a>
+    <a href="../CategoryPages/sedan.html">Sedan</a>
+  </div>
+  <div class="product-card">
+    <img
+      src="https://static.wikia.nocookie.net/pedrofilms-inc/images/7/71/2019_Ford_Fusion_Titanium_Energi%2C_front_2.29.20.jpg/revision/latest?cb=20210522143816&path-prefix=pt-br"
+      alt="Produto 5">
+    <h2>Fusion</h2>
+    <p class="price">R$ 28.000,00</p>
+    <p>Descubra o Ford Fusion, onde elegância encontra tecnologia. Com motor 2.0L EcoBoost de 245 cv e transmissão
+      automática de 6 velocidades, oferece uma direção potente e eficiente. Equipado com tração dianteira, controle de
+      clima automático, bancos de couro aquecidos e sistema SYNC 3 com Apple CarPlay e Android Auto, garante conforto e
+      conectividade. O Fusion incorpora avançadas assistências ao motorista, como monitoramento de ponto cego e
+      assistência de pré-colisão. Seu design sofisticado e contemporâneo, disponível em diversas cores, faz do Fusion a
+      opção perfeita para quem busca luxo e desempenho.</p>
+    <a href="../agradecimento.html" class="buy-button">Comprar</a>
+    <button class="add-to-cart-button"
+      onclick="dlEvent({event: events.addToCart, itemProperties: carModels.fusion})">Adicionar
+      ao Carrinho</button>
+    <button class="remove-from-cart-button"
+      onclick="dlEvent({event: events.removeCart, itemProperties: carModels.fusion})">Remover do Carrinho</button>
+    <a href="../checkout.html" class="checkout-button">Ir para o Checkout</a>
+    <!-- Resto do conteúdo -->
+  </div>
+</body>
+
+</html>

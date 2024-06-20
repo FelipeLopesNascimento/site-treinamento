@@ -15,6 +15,9 @@
     </script>
     <!-- End Google Tag Manager -->
 
+    <!-- dlEvents script-->
+    <script src="../Scripts/dlEvents.js"></script>
+
     <title>Data Analytics Car Shop - Produto 1</title>
     <style>
         h1 {
@@ -119,7 +122,7 @@
 
 </head>
 
-<body>
+<body onload="dlEvent({event: events.viewProduct, itemProperties: carModels.p206})">
     <!-- Google Tag Manager (noscript) -->
     <noscript>
         <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
@@ -127,23 +130,28 @@
     </noscript>
     <!-- End Google Tag Manager (noscript) -->
 
-    <h1>Data Analytics</h1>
+    <a href="../index.html">Home</a>
+    <h1>Pixel.Monks Dev Test - Produto 1</h1>
+
     <div class="menu">
-        <a href="#">Categoria 1</a>
-        <a href="#">Categoria 2</a>
-        <a href="#">Categoria 3</a>
+        <a href="../CategoryPages/compacto.html">Compacto</a>
+        <a href="../CategoryPages/esportivo.html">Esportivo</a>
+        <a href="../CategoryPages/sedan.html">Sedan</a>
     </div>
     <div class="product-card">
         <img src="https://cdn.motor1.com/images/mgl/j4zV6/s3/peugeot-206-20-anos.webp" alt="Produto 1">
         <h2>206</h2>
-        <p class="price">R$ 12.000,00</p>
+        <p class="price">R$ 18.000,00</p>
         <p>Sob o capô, o Peugeot 206 possui uma variedade de opções de motorização, oferecendo desempenho eficiente e
             econômico. Com uma suspensão bem ajustada, o carro proporciona uma direção suave, estável e ágil, tornando-o
             adequado para o dia a dia na cidade e também para viagens mais longas.</p>
-        <a href="agradecimento.html" class="buy-button">Comprar</a>
-        <button class="add-to-cart-button">Adicionar ao Carrinho</button>
-        <button class="remove-from-cart-button">Remover do Carrinho</button>
-        <a href="agradecimento.html" class="checkout-button">Ir para o Checkout</a>
+        <a href="../agradecimento.html" class="buy-button">Comprar</a>
+        <button class="add-to-cart-button"
+            onclick="dlEvent({event: events.addToCart, itemProperties: carModels.p206})">Adicionar
+            ao Carrinho</button>
+        <button class="remove-from-cart-button"
+            onclick="dlEvent({event: events.removeCart, itemProperties: carModels.p206})">Remover do Carrinho</button>
+        <a href="../checkout.html" class="checkout-button">Ir para o Checkout</a>
 
         <!-- Resto do conteúdo -->
     </div>

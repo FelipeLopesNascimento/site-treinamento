@@ -13,6 +13,10 @@
           'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-5KHDMS78');
   </script>
+
+  <!-- dlEvents script-->
+  <script src="Scripts/dlEvents.js"></script>
+
   <!-- End Google Tag Manager -->
 
 
@@ -89,7 +93,7 @@
   </style>
 </head>
 
-<body>
+<body onload="dlEvent({event: events.viewProductList, listProperties: {listName: productLists.home}})">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
@@ -98,35 +102,41 @@
   <!-- End Google Tag Manager (noscript) -->
 
 
-  <h1>Data Analytics Car Shop</h1>
+  <a href="index.html">
+    <h1>Data Analytics Car Shop</h1>
+  </a>
   <div class="menu">
-    <a href="#">Categoria 1</a>
-    <a href="#">Categoria 2</a>
-    <a href="#">Categoria 3</a>
+    <a href="CategoryPages/compacto.html">Compacto</a>
+    <a href="CategoryPages/esportivo.html">Esportivo</a>
+    <a href="CategoryPages/sedan.html">Sedan</a>
   </div>
   <div class="banner"></div>
-  <a href="produto1.html" class="product-card">
+  <a href="ProductPages/produto1.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 1}, itemProperties: carModels.p206})">
     <img src="https://cdn.motor1.com/images/mgl/j4zV6/s3/peugeot-206-20-anos.webp" alt="Peugeot 206">
     <h2>Peugeot 206</h2>
     <span>Preço: R$18.000</span>
     <p>Compacto e elegante, projetado para uma condução confortável e prazerosa.</p>
     <button>Ver Produto</button>
   </a>
-  <a href="produto2.html" class="product-card">
+  <a href="ProductPages/produto2.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 2}, itemProperties: carModels.gol})">
     <img src="https://blog.olhonocarro.com.br/wp-content/uploads/2023/06/vw-gol-g2-azul-traseira.jpg" alt="VW Gol">
     <h2>VW Gol</h2>
     <span>Preço: R$14.000</span>
     <p>Icônico e compacto, destacando-se pela confiabilidade e versatilidade.</p>
     <button>Ver Produto</button>
   </a>
-  <a href="produto3.html" class="product-card">
+  <a href="ProductPages/produto3.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 3}, itemProperties: carModels.mx5})">
     <img src="https://s3.us-east-2.amazonaws.com/prod.mm.com/img/articles/Lead1_VHaUGFh.jpeg" alt="MX-5">
     <h2>MX-5</h2>
     <span>Preço: R$25.000</span>
     <p>Mazda MX-5 Miata, roadster esportivo ágil com design clássico conversível.</p>
     <button>Ver Produto</button>
   </a>
-  <a href="produto4.html" class="product-card">
+  <a href="ProductPages/produto4.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 4}, itemProperties: carModels.impreza})">
     <img src="https://cdn.motor1.com/images/mgl/2NAWog/s3/1998-subaru-impreza-sti-22b-formerly-owned-by-colin-mcrae.jpg"
       alt="Impreza">
     <h2>Impreza</h2>
@@ -134,7 +144,8 @@
     <p>Compacto da Subaru, disponível em sedã e hatchback, conhecido pelo desempenho.</p>
     <button>Ver Produto</button>
   </a>
-  <a href="produto5.html" class="product-card">
+  <a href="ProductPages/produto5.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 5}, itemProperties: carModels.fusion})">
     <img
       src="https://static.wikia.nocookie.net/pedrofilms-inc/images/7/71/2019_Ford_Fusion_Titanium_Energi%2C_front_2.29.20.jpg/revision/latest?cb=20210522143816&path-prefix=pt-br"
       alt="Fusion">
@@ -143,7 +154,8 @@
     <p>Sedan médio da Ford com estilo elegante, conforto e tecnologia avançada.</p>
     <button>Ver Produto</button>
   </a>
-  <a href="produto6.html" class="product-card">
+  <a href="ProductPages/produto6.html" class="product-card"
+    onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.home, index: 6}, itemProperties: carModels.charger})">
     <img
       src="https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2018/02/16155242/1969-dodge-charger-bullitt.jpg"
       alt="Dodge Charger">

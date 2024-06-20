@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Google Tag Manager -->
+    <script>
+        (function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-5KHDMS78');
+    </script>
+    <!-- End Google Tag Manager -->
+
+    <!-- dlEvents script-->
+    <script src="../Scripts/dlEvents.js"></script>
+
+    <title>Data Analytics Car Shop</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .menu {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .menu a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333333;
+        }
+
+        .banner {
+            width: 100%;
+            height: 200px;
+            background: url('https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2018/02/16155242/1969-dodge-charger-bullitt.jpg') no-repeat center;
+            background-size: cover;
+        }
+
+        .product-card {
+            border: 1px solid #ddd;
+            margin: 20px;
+            padding: 10px;
+            display: inline-block;
+            width: 280px;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 150px;
+            border-radius: 8px;
+        }
+
+        .product-card h2,
+        .product-card p,
+        .product-card span {
+            margin: 10px 0;
+        }
+
+        .product-card button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .product-card button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body onload="dlEvent({event: events.viewProductList, listProperties: {listName: productLists.sedan}})">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+
+    <a href="../index.html">Home</a>
+    <h1>Pixel.Monks Dev Test - Category "Sedan"</h1>
+
+    <div class="menu">
+        <a href="compacto.html">Compacto</a>
+        <a href="esportivo.html">Esportivo</a>
+        <a href="sedan.html">Sedan</a>
+    </div>
+    <div class="banner"></div>
+    <a href="../ProductPages/produto5.html" class="product-card">
+        <img src="https://static.wikia.nocookie.net/pedrofilms-inc/images/7/71/2019_Ford_Fusion_Titanium_Energi%2C_front_2.29.20.jpg/revision/latest?cb=20210522143816&path-prefix=pt-br"
+            alt="Fusion">
+        <h2>Fusion</h2>
+        <span>Preço: R$28.000</span>
+        <p>Sedan médio da Ford com estilo elegante, conforto e tecnologia avançada.</p>
+        <button onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.sedan, index: 1}, itemProperties: carModels.fusion})">Ver Produto</button>
+    </a>
+    <a href="../ProductPages/produto6.html" class="product-card">
+        <img src="https://fotos-jornaldocarro-estadao.nyc3.cdn.digitaloceanspaces.com/uploads/2018/02/16155242/1969-dodge-charger-bullitt.jpg"
+            alt="Dodge Charger">
+        <h2>Dodge Charger</h2>
+        <span>Preço: R$35.000</span>
+        <p>Sedan esportivo de tamanho grande com estilo agressivo e desempenho poderoso.</p>
+        <button onclick="dlEvent({event: events.addProductList, listProperties: {listName: productLists.sedan, index: 2}, itemProperties: carModels.charger})">Ver Produto</button>
+    </a>
+</body>
+
+</html>
