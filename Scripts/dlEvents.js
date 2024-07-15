@@ -1,6 +1,6 @@
 const events = {
   viewProduct: "View_Product",
-  ClickProductList: "Click_Product_List",
+  clickProductList: "Click_Product_List",
   viewProductList: "View_Product_List",
   viewBanner: "View_Banner",
   clickBanner: "Click_Banner",
