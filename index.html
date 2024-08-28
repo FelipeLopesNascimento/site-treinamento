@@ -93,7 +93,7 @@
   </style>
 </head>
 
-<body onload="dlEvent({event: events.viewProductList, listProperties: {listName: productLists.home}})">
+<body onload="loadHomeEvents()">
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5KHDMS78" height="0" width="0"
@@ -111,7 +111,10 @@
     <a href="CategoryPages/sedan.html">Sedan</a>
   </div>
   <!--BANNER-->
-  <a href="CategoryPages/esportivo.html" onclick="dlEvent({event: events.clickBanner, bannerProperties: bannersData.home})"><div class="banner"></div></a>
+  <a href="CategoryPages/esportivo.html"
+    onclick="dlEvent({event: events.clickBanner, bannerProperties: bannersData.home})">
+    <div class="banner"></div>
+  </a>
   <a href="ProductPages/produto1.html" class="product-card"
     onclick="dlEvent({event: events.clickProductList, listProperties: {listName: productLists.home, index: 1}, itemProperties: carModels.p206})">
     <img src="https://cdn.motor1.com/images/mgl/j4zV6/s3/peugeot-206-20-anos.webp" alt="Peugeot 206">

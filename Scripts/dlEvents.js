@@ -76,20 +76,22 @@ const carModels = {
 
 const bannersData = {
   home: {
-    creative_name: 'Banner Esportivos',
+    creative_name: "Banner Esportivos",
     creative_slot: 1,
-    promotion_name: 'Promo Esportivos',
-    promotion_url: 'http://localhost:8080/CategoryPages/esportivo.html',
-    promotion_href: 'https://www.hojeemdia.com.br/image/policy:1.787953.1628830062:1628830062/image.jpg?w=1280&'
+    promotion_name: "Promo Esportivos",
+    promotion_url: "http://localhost:8080/CategoryPages/esportivo.html",
+    promotion_href:
+      "https://www.hojeemdia.com.br/image/policy:1.787953.1628830062:1628830062/image.jpg?w=1280&",
   },
   esportivo: {
-    creative_name: 'Banner MX-5',
+    creative_name: "Banner MX-5",
     creative_slot: 1,
-    promotion_name: 'Promo MX-5',
-    promotion_url: 'http://localhost:8080/ProductPages/produto3.html',
-    promotion_href: 'https://s3.us-east-2.amazonaws.com/prod.mm.com/img/articles/Lead1_VHaUGFh.jpeg'
-  }
-}
+    promotion_name: "Promo MX-5",
+    promotion_url: "http://localhost:8080/ProductPages/produto3.html",
+    promotion_href:
+      "https://s3.us-east-2.amazonaws.com/prod.mm.com/img/articles/Lead1_VHaUGFh.jpeg",
+  },
+};
 
 localStorage.pixelCart = localStorage.pixelCart || JSON.stringify([]);
 localStorage.pixelTransactions = localStorage.pixelTransactions || 0;
@@ -115,11 +117,11 @@ function dlEvent({
       }
     }
 
-    if(listProperties.listName){
+    if (listProperties.listName) {
       ecommerce.list = listProperties.listName;
     }
 
-    if(listProperties.index){
+    if (listProperties.index) {
       ecommerce.index = listProperties.index;
     }
     ecommerce.items = itemsList;
@@ -129,11 +131,10 @@ function dlEvent({
      * antes da verificação do nome do evento
      */
 
-    
     if (event == events.viewProductList) {
       ecommerce.items = getList(listProperties.listName);
     }
-    
+
     if (event == events.viewBanner || event == events.clickBanner) {
       ecommerce.promotions = bannerProperties;
       console.log(ecommerce.promotions);
@@ -226,4 +227,9 @@ function getList(listName) {
   }
 
   return aux;
+}
+
+function loadHomeEvents() {
+  dlEvent({event: events.viewProductList, listProperties: {listName: productLists.home}});
+  dlEvent({event: events.viewBanner, bannerProperties: bannersData.home});
 }
