@@ -93,11 +93,19 @@ const bannersData = {
   },
 };
 
-localStorage.pixelCart = localStorage.pixelCart || JSON.stringify([]);
-localStorage.pixelTransactions = localStorage.pixelTransactions || 0;
+sessionStorage.pixelCart = sessionStorage.pixelCart || JSON.stringify([]);
+sessionStorage.pixelTransactions = sessionStorage.pixelTransactions || 0;
 
-var cart = JSON.parse(localStorage.pixelCart);
-var transactions = parseInt(localStorage.pixelTransactions);
+let cart = JSON.parse(sessionStorage.pixelCart);
+let transactions = parseInt(sessionStorage.pixelTransactions);
+
+if (typeof dataLayer === "undefined") {
+  window.dataLayer = [];
+}
+
+function syncCartWithSessionStorage() {
+    sessionStorage.pixelCart = JSON.stringify(cart);
+}
 
 function dlEvent({
   event,
@@ -107,14 +115,10 @@ function dlEvent({
   bannerProperties = {},
 } = {}) {
   if (event) {
-    var ecommerce = {};
-    var totalPrice;
+    let ecommerce = {};
 
-    if (itemsList.length == 0) {
-      //Inclui o itemProperties dentro do array itemsList
-      if (Object.keys(itemProperties).length > 0) {
-        itemsList.push(itemProperties);
-      }
+    if (itemsList.length === 0 && Object.keys(itemProperties).length > 0) {
+      itemsList.push(itemProperties);
     }
 
     if (listProperties.listName) {
@@ -126,49 +130,38 @@ function dlEvent({
     }
     ecommerce.items = itemsList;
 
-    /**
-     * As configurações necessárias para os eventos view_product e click_product_list acontecem
-     * antes da verificação do nome do evento
-     */
-
-    if (event == events.viewProductList) {
+    if (event === events.viewProductList) {
       ecommerce.items = getList(listProperties.listName);
     }
 
-    if (event == events.viewBanner || event == events.clickBanner) {
+    if (event === events.viewBanner || event == events.clickBanner) {
       ecommerce.promotions = bannerProperties;
       console.log(ecommerce.promotions);
     }
 
-    if (event == events.addToCart) {
+    if (event === events.addToCart) {
       cart.push(itemProperties);
-
-      localStorage.pixelCart = JSON.stringify(cart);
-
-      console.log("------Item adicionado ao carrinho------");
-      console.log(cart);
-      console.log("---------------------------------------");
+      syncCartWithSessionStorage();
+      console.log("------Item adicionado ao carrinho------", cart);
     }
 
-    if (event == events.removeCart) {
+    if (event === events.removeCart) {
       cart = removeItem(cart, itemProperties);
-
-      localStorage.pixelCart = JSON.stringify(cart);
-
-      console.log("------Item removido do carrinho------");
-      console.log(cart);
-      console.log("---------------------------------------");
+      syncCartWithSessionStorage();
+      console.log("------Item removido do carrinho------", cart);
     }
 
-    if (event == events.checkout) {
+    if (event === events.checkout) {
       ecommerce.total = getTotalValue(cart);
       ecommerce.items = Array.from(cart);
+      syncCartWithSessionStorage();
     }
 
-    if (event == events.purchase) {
+    if (event === events.purchase) {
       ecommerce.total = getTotalValue(cart);
       ecommerce.items = Array.from(cart);
       ecommerce.transaction = registerTransaction();
+      syncCartWithSessionStorage();
     }
 
     dataLayer.push({ ecommerce: null });
@@ -180,35 +173,29 @@ function dlEvent({
 }
 
 function removeItem(arr, item) {
-  for (i in arr) {
-    if ((arr[i].product_id = item.product_id)) {
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].product_id === item.product_id) {
       arr.splice(i, 1);
-      break;
-    } else if ((i = arr.length - 1)) {
-      console.log("Produto não encontrado");
+      return arr;
     }
   }
-
+  console.log("Produto não encontrado");
   return arr;
 }
 
 function getTotalValue(arr) {
-  var total = 0;
-
-  for (i in arr) {
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
     total += arr[i].product_price;
   }
-
   return total;
 }
 
 function registerTransaction() {
   transactions++;
   cart = [];
-
-  localStorage.pixelTransactions = transactions;
-  localStorage.pixelCart = JSON.stringify(cart);
-
+  sessionStorage.pixelTransactions = transactions;
+  syncCartWithSessionStorage();
   return (
     "T-PDX" +
     transactions.toLocaleString("pt-BR", {
@@ -218,18 +205,16 @@ function registerTransaction() {
 }
 
 function getList(listName) {
-  var aux = [];
-
-  for (i in carModels) {
-    if (carModels[i].product_cat == listName || listName == productLists.home) {
-      aux.push(carModels[i]);
+  const aux = [];
+  for (const key in carModels) {
+    if (carModels[key].product_cat === listName || listName === productLists.home) {
+      aux.push(carModels[key]);
     }
   }
-
   return aux;
 }
 
 function loadHomeEvents() {
-  dlEvent({event: events.viewProductList, listProperties: {listName: productLists.home}});
-  dlEvent({event: events.viewBanner, bannerProperties: bannersData.home});
+  dlEvent({ event: events.viewProductList, listProperties: { listName: productLists.home } });
+  dlEvent({ event: events.viewBanner, bannerProperties: bannersData.home });
 }
